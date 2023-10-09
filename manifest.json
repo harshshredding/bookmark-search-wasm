@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "version": "0.1.0",
+  "description": "Really fast and smart bookmark search",
+  "author": "Harsh Verma",
+  "name": "Bookmark Search fzf",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://rust-linz.at/*"
+      ],
+      "js": [
+        "node_modules/webextension-polyfill/dist/browser-polyfill.min.js",
+        "chrome_fzf.js"
+      ],
+      "css": []
+    }
+  ],
+  "background": {
+    "scripts": [
+      "node_modules/webextension-polyfill/dist/browser-polyfill.min.js",
+      "chrome_fzf.js"
+    ]
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": [
+    "package.json",
+    "chrome_fzf_bg.wasm",
+    "yarn.lock"
+  ],
+  "permissions": [
+    "storage",
+    "bookmarks"
+  ],
+  "applications": {
+    "gecko": {
+      "id": "rust-web-extension@dev.env"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "rust-web-extension@dev.env"
+    }
+  }
+}
